@@ -23,6 +23,7 @@ yarn ad ts-node-dev -D
 yarn typeorm migration:create -n CreateSettings
 #run migrations
 yarn typeorm migration:run
+#repositorios para manipular dados
 ```
 * UUID
 ```shell

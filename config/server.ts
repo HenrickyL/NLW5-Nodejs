@@ -1,4 +1,5 @@
 import express from 'express'
+import SettingRoutes from '../app/routes/SettingRoutes'
 //... tipagens separadas
 const port  = 3333
 
@@ -17,15 +18,7 @@ export default (options : Options)=>{
     
     
     // Endpoints
-    app.get('/',(req,res)=>{
-        return res.status(200).json({message:"Olá NLW5"})
-    })
-
-    app.post('/users',(req,res)=>{
-        return res.status(200).json({message:"user salvo com sucesso!"})
-
-    })
-
+    app.use(SettingRoutes)
 
 
 
