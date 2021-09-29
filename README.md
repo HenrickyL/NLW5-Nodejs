@@ -19,4 +19,8 @@ yarn ad ts-node-dev -D
 ```shell
  yarn add typeorm reflect-metadata sqlite3 --save
 # create ormcinfig.json
+# config & create migrations
+yarn typeorm migration:create -n CreateSettings
+#run migrations
+yarn typeorm migration:run
 ```
