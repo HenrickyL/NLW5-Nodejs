@@ -24,3 +24,8 @@ yarn typeorm migration:create -n CreateSettings
 #run migrations
 yarn typeorm migration:run
 ```
+* UUID
+```shell
+yarn add uuid --save
+yarn add @types/uuid -D
+``` 
