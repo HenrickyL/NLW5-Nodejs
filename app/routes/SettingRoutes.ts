@@ -1,6 +1,5 @@
 import {Router} from 'express'
-import { getCustomRepository } from 'typeorm'
-import { SettingRepository } from '../repositories/SettingRepository'
+import { SettingsService } from '../services/SettingsService'
 
 /* Tipos de parametros
 * Params - params rotas (localhost:333/1)
@@ -14,17 +13,17 @@ routes.get('/settings',async (req,res)=>res.send('no ar'))
 
 routes.post('/settings',async (req,res)=>{
     const {chat,username} = req.body
+    
+    const settingsService = new SettingsService()
+    try {
+        const setting = await settingsService.create({chat,username})
+        return res.status(200).json(setting)
+        
+    } catch (error) {
+        return res.status(400).json({message: error.message})
+        
+    }
 
-    const settingRepository = getCustomRepository(SettingRepository)
-    //criar representação
-    const settings=settingRepository.create({
-        chat,
-        username
-    })
-    //salvar obs
-    await settingRepository.save(settings)
-
-    return res.status(200).json(settings)
 })
 
 export default routes
