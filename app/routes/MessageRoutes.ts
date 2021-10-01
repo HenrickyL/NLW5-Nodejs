@@ -9,5 +9,8 @@ router.get('/messages',messagesController.list)
 
 router.post('/messages',messagesController.create)
 
+router.get('/messages/:id',messagesController.showByUser)
+
+
 
 export default router
