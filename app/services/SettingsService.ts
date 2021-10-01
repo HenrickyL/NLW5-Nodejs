@@ -26,6 +26,12 @@ class SettingsService {
 
         return settings
     }
+
+    async list( ) {
+        const settingRepository = getCustomRepository(SettingRepository)
+        const settings = await settingRepository.find()
+        return settings
+    }
     
 
 

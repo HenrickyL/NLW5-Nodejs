@@ -1,5 +1,7 @@
 import express from 'express'
-import SettingRoutes from '../app/routes/SettingRoutes'
+import settingRoutes from '../app/routes/SettingRoutes'
+import userRouters from '../app/routes/UserRouters'
+
 //... tipagens separadas
 const port  = 3333
 
@@ -18,7 +20,9 @@ export default (options : Options)=>{
     
     
     // Endpoints
-    app.use(SettingRoutes)
+    app.use(settingRoutes)
+    app.use(userRouters)
+
 
 
 

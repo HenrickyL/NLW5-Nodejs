@@ -1,4 +1,5 @@
 import {Router} from 'express'
+import { SettingController } from '../controllers/SettingController'
 import { SettingsService } from '../services/SettingsService'
 
 /* Tipos de parametros
@@ -9,22 +10,11 @@ import { SettingsService } from '../services/SettingsService'
 
 const routes = Router()
 
-routes.get('/settings',async (req,res)=>res.send('no ar'))
+const settingController = new SettingController()
 
-routes.post('/settings',async (req,res)=>{
-    const {chat,username} = req.body
-    
-    const settingsService = new SettingsService()
-    try {
-        const setting = await settingsService.create({chat,username})
-        return res.status(200).json(setting)
-        
-    } catch (error) {
-        return res.status(400).json({message: error.message})
-        
-    }
+routes.get('/settings',settingController.list)
 
-})
+routes.post('/settings',settingController.create)
 
 export default routes
 ////////////////////////////////////////////////////////////////
