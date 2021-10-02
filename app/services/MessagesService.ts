@@ -4,7 +4,7 @@ import { Message } from '../entities/Message';
 import { MessageRepository } from '../repositories/MessageRepository';
 
 interface IMessageCreate{
-    admin_id:string | null,
+    admin_id?:string,
     text:string,
     user_id:string
 }
@@ -40,6 +40,9 @@ class MessagesService{
 
         return list;
 
+    }
+    async clear(){
+        await this.messagesRepository.clear();
     }
 }
 

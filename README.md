@@ -30,3 +30,8 @@ yarn typeorm migration:run
 yarn add uuid --save
 yarn add @types/uuid -D
 ``` 
+
+* Socketio
+```shell
+yarn add socket.io @types/socket.io
+```

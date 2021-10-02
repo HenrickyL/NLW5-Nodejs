@@ -16,6 +16,7 @@ class UserService{
     }
 
     async create({email}:IUserCreate){
+        email = email.toLowerCase()
         //ifexists
         const userAlreadyExists = await this.userRepository.findOne({email})
         if(userAlreadyExists){
@@ -37,6 +38,15 @@ class UserService{
 
     }
 
+    async findByEmail(email:string){
+        const user = await this.userRepository.findOne({email})
+
+        return user
+    }
+
+    async clear(){
+        await this.userRepository.clear();
+    }
     
 }
 
